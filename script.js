@@ -75,8 +75,24 @@ mostraPergunta();
 })
 }
 }
-{
+
  perguntaAtual = perguntas[atual];
  caixaPerguntas.textContent = perguntaAtual.enunciado;
- mostraPergunta();
+caixaAlternativas.textContent = " ";
+mostraAlternativas();
+  
+if (atual >= perguntas.length) {
+
+mostraResultado();
+caixaPerguntas.textContent = " Em 2049...";
+textoResultado.textContent = historiaFinal;
+caixaAlternativas.textContent = "";
 }
+
+function respostaSelecionada(opcaoSelecionada) {
+const afirmacoes = opcaoSelecionada.afirmacao;
+historiaFinal = afirmacoes + " ";
+atual ++;
+mostraPergunta();
+}
+
